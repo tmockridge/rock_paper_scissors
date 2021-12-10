@@ -1,0 +1,76 @@
+from random import randint
+
+win_count = 0
+lose_count = 0
+tie_count = 0
+
+# create a list of choices
+c = ["Rock", "Paper", "Scissors"]
+
+# assign computer's choice
+computer = c[randint(0, 2)]
+
+# set player to false
+stop_playing = False
+
+print()
+print("To stop playing, type STOP.")
+print()
+
+while stop_playing == False:
+    # set playing to True
+    player = input("Rock, Paper, or Scissors? ")
+    print(player)
+    if player.lower() == "stop":
+        print()
+        print(
+            f"Thanks for playing! Your record was {win_count}-{lose_count}-{tie_count}")
+        print()
+        break
+    if player.title() == computer:
+        print()
+        print("Tie!")
+        tie_count += 1
+        print()
+    elif player.title() == "Rock":
+        if computer == "Paper":
+            print()
+            print(f"You lose. {computer} covers {player.title()}.")
+            lose_count += 1
+            print()
+        else:
+            print()
+            print(f"You win! {player.title()} smashes {computer}.")
+            win_count += 1
+            print()
+    elif player.title() == "Paper":
+        if computer == "Scissors":
+            print()
+            print(f"You lose. {computer} cuts {player.title()}.")
+            lose_count += 1
+            print()
+        else:
+            print()
+            print(f"You win!, {player.title()} covers {computer}.")
+            win_count += 1
+            print()
+        elif player.title() == ("Scissors"):
+          if computer == "Rock":
+            print()
+            print(f"You lose. {computer} smashes {player.title()}.")
+            lose_count += 1
+            print()
+          else:
+            print()
+            print(f"You win! {player.title()} cuts {computer}.")
+            win_count += 1
+            print()
+          else:
+            print()
+            print("Sorry, we couldn't understand that.")
+            print()
+# player was set to True, but needs to be false to continue loop
+print(f"Your record is {win_count}-{lose_count}-{tie_count}")
+print()
+player = False
+computer = c[randint(0, 2)]
